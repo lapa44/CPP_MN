@@ -24,8 +24,6 @@ double task10_1a(double xp, double xk, double eps, double incrementer, int count
     return task10_1a(xp, xk, eps, incrementer / 6, counter); // bylo /10, ale liczba operacji była x10
 }
 
-
-
 double task10_1b(double x, double eps) {
 
     double f0 = function10_1(x), x0 = x;
@@ -37,4 +35,11 @@ double task10_1b(double x, double eps) {
         std::cout << "Przyblizono " << f0 << " dla x = " << x0 << "\n";
     }
     return x0;
+}
+
+void task10_1(double xp, double xk, double eps, double incrementer) {
+    std::cout << "Metoda 100064: " << task10_1a(-3, 2, 0.0001, 1) << "\n";
+    std::cout << "Metoda Newtona: " << task10_1b(2, 0.0001);
+    // zaczynamy od konca przedzialu, wynika to z warunku
+    // ze 2 pochodna musi miec ten sam znak co funkcja.
 }

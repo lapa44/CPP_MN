@@ -3,10 +3,10 @@
 
 double function10_2(double x);
 
-double prostokaty_10_2(double xp, double xk, int n);
+double prostokaty_10_2(double xp, double xk, int n, double eps, int counter);
 
-double trapezy_10_2(double xp, double xk, int n);
+double trapezy_10_2(double xp, double xk, int n, double eps, int counter);
 
-void task10_2(double xp, double xk, int n);
+void task10_2(double xp, double xk, double eps);
 
 #endif //CPP_MN_TASK10_2_H

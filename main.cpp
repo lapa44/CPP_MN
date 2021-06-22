@@ -10,7 +10,7 @@ int main() {
     // ze 2 pochodna musi miec ten sam znak co funkcja.
 
     task10_1(-3, 2, 0.0001, 1);
-    task10_2(1, 5, 50);
+    task10_2(1, 5, 0.00001);
     //zamienic jeszcze to tak, zeby n sie zmienialo przy nie osiagnieciu EPS
 
 
