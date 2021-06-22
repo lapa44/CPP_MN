@@ -1,42 +1,39 @@
 #include <iostream>
 #include "task10_2.h"
 
-float function10_2(float x) {
+double function10_2(double x) {
     return (1/(2*x + 3)) + 3*x*x;
 }
 
-void prostokaty_10_2(float xp, float xk, int n) {
+double prostokaty_10_2(double xp, double xk, int n) {
+    int counter = 0;
+    double dx = (xk-xp) / (double)n;
 
-    float dx = (xk-xp) / (float)n;
-
-    float rezultat = 0;
+    double rezultat = 0;
 
     for (int i=1; i<=n; i++) {
-        rezultat += function10_2(xp + (float)i * dx);
-        rezultat *= dx;
+        counter++;
+        rezultat += function10_2(xp + (double)i * dx);
         std::cout << "Prostokaty krok "  <<  i << ": " << rezultat << "\n";
     }
-    std::cout << "Metoda prostokatow: " << rezultat << "\n";
-
+    std::cout << "Liczba operacji w metodzie prostokatow: " << counter << "\n";
+    return rezultat * dx;
 }
 
-void trapezy_10_2(float xp, float xk, int n) {
-
-    float dx = (xk-xp) / (float)n;
-
-    float rezultat = 0;
-
+double trapezy_10_2(double xp, double xk, int n) {
+    int counter = 0;
+    double dx = (xk-xp) / (double)n;
+    double rezultat = 0;
     for (int i=1; i<n; i++) {
-        rezultat += function10_2(xp + (float)i * dx);
-        //rezultat += (function10_2(xp) + function10_2(xk)) / 2;
-        rezultat = (rezultat + (function10_2(xp) + function10_2(xk)) / 2) * dx;
-        std::cout << "Trapezy krok "  <<  i << ": " << rezultat << "\n";
+        counter++;
+        rezultat += function10_2(xp + (double)i * dx);
     }
-    std::cout << "Metoda Trapezow: " << rezultat << "\n";
-
+    std::cout << "Liczba operacji w metodzie trapezow: " << counter << "\n";
+    return (rezultat + (function10_2(xp) + function10_2(xk)) / 2) * dx;
 }
 
-void task10_2(float xp, float xk, float n) {
-    prostokaty_10_2(xp, xk, n);
-    trapezy_10_2(xp, xk, n);
+void task10_2(double xp, double xk, int n) {
+    double eps = 0.00001;
+    std::cout << "Rezultat metoda prostokatow: " << prostokaty_10_2(xp, xk, n) << "\n";
+    std::cout << "Rezultat metoda trapezow: "<< trapezy_10_2(xp, xk, n) << "\n"; // 124-125 dobry wynik :D
 }

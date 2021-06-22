@@ -1,12 +1,12 @@
 #ifndef CPP_MN_TASK10_2_H
 #define CPP_MN_TASK10_2_H
 
-float function10_2(float x);
+double function10_2(double x);
 
-void prostokaty_10_2(float xp, float xk, int n);
+double prostokaty_10_2(double xp, double xk, int n);
 
-void trapezy_10_2(float xp, float xk, int n);
+double trapezy_10_2(double xp, double xk, int n);
 
-void task10_2(float xp, float xk, float n);
+void task10_2(double xp, double xk, int n);
 
 #endif //CPP_MN_TASK10_2_H
