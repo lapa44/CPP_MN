@@ -15,13 +15,12 @@ double task10_1a(double xp, double xk, double eps, double incrementer, int count
     for (double i=-3; i<=2; i += incrementer) {
         counter++;
         result = function10_1(i);
-        //std::cout << "Przyblizenie nr " << counter << "=\t"  << result << "dla x = " << i << "\n";
+        //std::cout << "Estimation no. " << counter << "=\t"  << result << "for x = " << i << "\n";
         if (result == 0 || std::abs(result) < eps) {
-            std::cout << "Liczba operacji metoda 100064: " << counter << "\n";
+            std::cout << "Number of operations in 100064's method: " << counter << "\n";
             return i;
         }
     }
-    //return task10_1a(xp, xk, eps, incrementer / 6, counter); // bylo /10, ale liczba operacji była x10
     return task10_1a(xp, xk, eps, incrementer/6, counter);
 }
 
@@ -34,16 +33,16 @@ double task10_1b(double x, double eps) {
         x = x0;
         x0 = x - f0 / derivative10_1(x);
         f0 = function10_1(x0);
-        std::cout << "Przyblizono " << f0 << " dla x = " << x0 << "\n";
+        std::cout << "Estimated " << f0 << " for x = " << x0 << "\n";
         counter++;
     }
-    std::cout << "Liczba operacji w  metodzie Newtona: " << counter << std::endl;
+    std::cout << "\nNumber of operations in Newton's method: " << counter << std::endl;
     return x0;
 }
 
 void task10_1(double xp, double xk, double eps, double incrementer) {
-    std::cout << "Metoda 100064 wynik: " << task10_1a(xp, xk, eps, incrementer) << "\n";
-    std::cout << "Metoda Newtona wynik: " << task10_1b(2, eps) << std::endl;
-    // zaczynamy od konca przedzialu, wynika to z warunku
-    // ze 2 pochodna musi miec ten sam znak co funkcja.
+    std::cout << "100064's method result: " << task10_1a(xp, xk, eps, incrementer) << "\n\n";
+    std::cout << "Newton's Method result: " << task10_1b(2, eps) << std::endl << std::endl;
+    // we're starting from the end of the interval, due to the condition that says
+    // the second derivative must have same sign as function.
 }
